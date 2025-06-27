@@ -95,8 +95,8 @@ def index():
 
 from flask_migrate import upgrade
 
-@app.before_first_request
-def apply_migrations():
+# apply migrations when app starts up
+with app.app_context():
     upgrade()
 
 if __name__ == "__main__":
