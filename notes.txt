@@ -1,0 +1,21 @@
+rm instance/db.sqlite3
+
+python app.py 
+
+python3 -c "import secrets; print(secrets.token_hex(32))"
+
+source venv/bin/activate
+
+
+from models import db
+from models.user import User
+
+admin = User.query.filter_by(username="admin").first()
+admin.is_admin = True
+db.session.commit()
+
+from models.user import User
+u = User.query.filter_by(username="admin").first()
+print(u.role)  # should print 'admin'
+u.role = "admin"
+db.session.commit()
