@@ -89,9 +89,9 @@ app.register_blueprint(menu_bp_v2, url_prefix="/api/v2")
 # api.add_resource(MenuItemListResource, '/menu/')
 # api.add_resource(MenuItemResource, '/menu/<int:item_id>')
 
-@app.route("/hello")
-def hello():
-    return "Hello, Flask with DB!"
+@app.route("/")
+def index():
+    return {"message": "FlaskMenuAPI is live!"}
 
 if __name__ == "__main__":
     # app.run(debug=True)
