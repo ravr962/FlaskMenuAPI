@@ -93,12 +93,12 @@ app.register_blueprint(menu_bp_v2, url_prefix="/api/v2")
 def index():
     return {"message": "FlaskMenuAPI is live!"}
 
-if __name__ == "__main__":
-    # app.run(debug=True)
-    app.run(host='0.0.0.0', port=os.environ.get("PORT", 5000))
-
 from flask_migrate import upgrade
 
 @app.before_first_request
 def apply_migrations():
     upgrade()
+
+if __name__ == "__main__":
+    # app.run(debug=True)
+    app.run(host='0.0.0.0', port=os.environ.get("PORT", 5000))
