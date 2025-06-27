@@ -78,6 +78,12 @@ migrate = Migrate(app, db)
 with app.app_context():
     db.create_all()
 
+from flask_migrate import upgrade
+
+@app.before_first_request
+def apply_migrations():
+    upgrade()
+
 # app.register_blueprint(menu_bp)
 app.register_blueprint(order_bp)
 app.register_blueprint(auth_bp)
