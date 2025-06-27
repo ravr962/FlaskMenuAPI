@@ -93,11 +93,23 @@ app.register_blueprint(menu_bp_v2, url_prefix="/api/v2")
 def index():
     return {"message": "FlaskMenuAPI is live!"}
 
-from flask_migrate import upgrade
+# from flask_migrate import upgrade
 
-# apply migrations when app starts up
+# # apply migrations when app starts up
+# with app.app_context():
+#     upgrade()
+
+from models.user import User
+#from extensions import db
+
 with app.app_context():
-    upgrade()
+    admin = User.query.filter_by(username="admin").first()
+    if admin:
+        admin.role = "admin"
+        db.session.commit()
+        print("✅ Admin role set for 'admin' user")
+    else:
+        print("❌ Admin user not found")
 
 if __name__ == "__main__":
     # app.run(debug=True)
