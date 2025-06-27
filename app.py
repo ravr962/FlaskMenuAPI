@@ -100,16 +100,14 @@ def index():
 #     upgrade()
 
 from models.user import User
-#from extensions import db
+
 
 with app.app_context():
-    admin = User.query.filter_by(username="admin").first()
-    if admin:
-        admin.role = "admin"
+    admin_user = User.query.filter_by(username='admin').first()
+    if admin_user:
+        admin_user.is_admin = True
         db.session.commit()
-        print("✅ Admin role set for 'admin' user")
-    else:
-        print("❌ Admin user not found")
+        print("✅ is_admin set to True for 'admin'")
 
 if __name__ == "__main__":
     # app.run(debug=True)
