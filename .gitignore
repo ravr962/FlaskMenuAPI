@@ -26,4 +26,4 @@ instance/db.sqlite3
 migrations/__pycache__/
 
 # Docker
-*.pid
+*.pid.env.render
