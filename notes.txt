@@ -32,4 +32,4 @@ git push -u origin main
 git rm --cached .env .env.render instance/db.sqlite3
 git commit -m "Remove sensitive files from Git history"
 
-gunicorn app:app
+

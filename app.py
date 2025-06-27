@@ -99,15 +99,15 @@ def index():
 # with app.app_context():
 #     upgrade()
 
-from models.user import User
+# from models.user import User
 
 
-with app.app_context():
-    admin_user = User.query.filter_by(username='admin').first()
-    if admin_user:
-        admin_user.is_admin = True
-        db.session.commit()
-        print("✅ is_admin set to True for 'admin'")
+# with app.app_context():
+#     admin_user = User.query.filter_by(username='admin').first()
+#     if admin_user:
+#         admin_user.is_admin = True
+#         db.session.commit()
+#         print("✅ is_admin set to True for 'admin'")
 
 if __name__ == "__main__":
     # app.run(debug=True)
