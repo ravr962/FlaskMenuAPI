@@ -19,3 +19,12 @@ u = User.query.filter_by(username="admin").first()
 print(u.role)  # should print 'admin'
 u.role = "admin"
 db.session.commit()
+
+
+git init
+git add .
+git commit -m "Initial commit for Render deployment"
+
+git remote add origin https://github.com/ravr962/FlaskMenuAPI.git
+git branch -M main
+git push -u origin main
